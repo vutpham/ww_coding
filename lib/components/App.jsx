@@ -1,36 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startUpAction } from '../actions/startUpActions';
+import SubRedditList from './subRedditList/subRedditList';
 
 class App extends React.Component {
   constructor (props) {
     super(props);
+
+    this.state = {
+      currView: null
+    };
+  }
+
+  displaySubreddit() {
+
   }
 
   componentDidMount () {
-    setTimeout(this.props.startUpAction.bind(this), 1000);
+    // Pass currView to the subRedditDetail, pass /r/news if null
   }
 
   render () {
     return (
       <div className='app'>
-        SIMPLE REACT BOILERPLATE
+        <SubRedditList />
       </div>
     );
   }
 }
 
-// CONTAINER COMPONENTS
-
-const mapStateToProps = ({startUp}) => ({
-  startUp: startUp.success
-});
-
-const mapDispatchToProps = dispatch => ({
-  startUpAction: () => dispatch(startUpAction())
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
