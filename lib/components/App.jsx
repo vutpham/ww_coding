@@ -9,10 +9,12 @@ class App extends React.Component {
     this.state = {
       currView: null
     };
+
+    this.displaySubreddit = this.displaySubreddit.bind(this);
   }
 
-  displaySubreddit() {
-
+  displaySubreddit(sub) {
+    this.setState({currView: sub}, () => console.log(this.state.currView));
   }
 
   componentDidMount () {
@@ -22,7 +24,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='app'>
-        <SubRedditList />
+        <SubRedditList displaySubreddit={ this.displaySubreddit }/>
       </div>
     );
   }
