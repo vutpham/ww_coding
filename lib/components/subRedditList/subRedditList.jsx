@@ -35,10 +35,9 @@ class SubRedditList extends React.Component {
 // List of subreddits should only update if new subreddit is requested
   updateList(res, subreddit) {
     if (res) {
-      console.log(this.state.subreddits);
       let updated = this.state.subreddits;
       if (!this.state.subreddits.includes(`/r/${subreddit}`)) updated.push(`/r/${subreddit}`);
-      this.setState({subreddits: updated, searchTerm: ""}, () => console.log(this.state));
+      this.setState({subreddits: updated, searchTerm: ""});
     }
   }
 
