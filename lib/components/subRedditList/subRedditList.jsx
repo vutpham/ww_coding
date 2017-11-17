@@ -36,7 +36,7 @@ class SubRedditList extends React.Component {
     if (confirm("Are you sure?")) {
       let subs = this.state.subreddits;
       subs.splice(subs.indexOf(name), 1);
-      this.setState({subreddits: subs}, () => console.log(this.state.subreddits));
+      this.setState({subreddits: subs}, () => this.props.displaySubreddit('/r/news'));
     }
   }
 
@@ -45,7 +45,7 @@ class SubRedditList extends React.Component {
     if (res) {
       let updated = this.state.subreddits;
       if (!this.state.subreddits.includes(`/r/${subreddit}`)) updated.push(`/r/${subreddit}`);
-      this.setState({subreddits: updated, searchTerm: ""});
+      this.setState({subreddits: updated, searchTerm: ""}, () => document.getElementById('subreddit-search').value = "");
     }
   }
 

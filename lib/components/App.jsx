@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import SubRedditList from './subRedditList/subRedditList';
 import SubRedditContent from './subRedditContent/subRedditContent';
+import Title from './title';
 
 class App extends React.Component {
   constructor (props) {
@@ -17,8 +18,13 @@ class App extends React.Component {
   }
 
   displaySubredditContent() {
-    axios.get(`http://www.reddit.com${this.state.currView}.json?limit=10`)
+    if (this.state.currView === null) {
+      axios.get(`http://www.reddit.com/r/news.json?limit=10`)
       .then(res => this.setState({subredditContent: res.data.data.children.filter((item) => !item.data.stickied)}, () => console.log(this.state.subredditContent)));
+    } else {
+      axios.get(`http://www.reddit.com${this.state.currView}.json?limit=10`)
+      .then(res => this.setState({subredditContent: res.data.data.children.filter((item) => !item.data.stickied)}, () => console.log(this.state.subredditContent)));
+    }
   }
 
 
@@ -34,6 +40,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='app'>
+        <Title />
         <SubRedditList displaySubreddit={ this.displaySubreddit } />
         <SubRedditContent subreddit={ this.state.currView }
                          subredditContent={ this.state.subredditContent }/>
