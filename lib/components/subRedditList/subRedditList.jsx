@@ -9,12 +9,12 @@ class SubRedditList extends React.Component {
 
     this.state = {
       searchTerm: "",
-      subreddits: ['/r/games', '/r/sanfrancisco', '/r/tech', '/r/fashion']
+      subreddits: ['/r/news']
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateList = this.updateList.bind(this);
-    this.printResponse = this.printResponse.bind(this);
+    this.removeSelf = this.removeSelf.bind(this);
   }
 
   // Maybe a component lifecycle method to handle update here
@@ -24,12 +24,20 @@ class SubRedditList extends React.Component {
     return this.state.subreddits.length === 0 ? "Please add some SubReddits" :
       this.state.subreddits.map((subreddit, i) => {
         return (
-          <div key={`list_item_${i}`}
-               onClick={ () => this.props.displaySubreddit(subreddit) }>
-            <SubRedditListItem name={subreddit}/>
-          </div>
+            <SubRedditListItem name={subreddit}
+               displaySubreddit={this.props.displaySubreddit}
+               removeSelf={ this.removeSelf }
+               key={`list_item_${i}`} />
         );
       });
+  }
+
+  removeSelf(name) {
+    if (confirm("Are you sure?")) {
+      let subs = this.state.subreddits;
+      subs.splice(subs.indexOf(name), 1);
+      this.setState({subreddits: subs}, () => console.log(this.state.subreddits));
+    }
   }
 
 // List of subreddits should only update if new subreddit is requested
@@ -39,14 +47,6 @@ class SubRedditList extends React.Component {
       if (!this.state.subreddits.includes(`/r/${subreddit}`)) updated.push(`/r/${subreddit}`);
       this.setState({subreddits: updated, searchTerm: ""});
     }
-  }
-
-  printResponse(res) {
-    let info = res.data.children;
-
-    return info.map((data, i) =>{
-
-    });
   }
 
   handleSubmit(e) {

@@ -15,7 +15,6 @@ class SubRedditContent extends React.Component {
 
   displayContent() {
     if (this.props.subredditContent.length) {
-      console.log(this.props.subredditContent);
       return this.props.subredditContent.map((item, i) => {
         return (
           <SubRedditContentItem key={`subreddit_content_${i}`}

@@ -18,7 +18,7 @@ class App extends React.Component {
 
   displaySubredditContent() {
     axios.get(`http://www.reddit.com${this.state.currView}.json?limit=10`)
-      .then(res => this.setState({subredditContent: res.data.data.children}));
+      .then(res => this.setState({subredditContent: res.data.data.children.filter((item) => !item.data.stickied)}, () => console.log(this.state.subredditContent)));
   }
 
 
