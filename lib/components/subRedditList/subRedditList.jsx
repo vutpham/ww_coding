@@ -9,7 +9,7 @@ class SubRedditList extends React.Component {
 
     this.state = {
       searchTerm: "",
-      subreddits: ['/r/news']
+      subreddits: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currView: null,
+      currView: '/r/news',
       subredditContent: []
     };
 
@@ -28,6 +28,7 @@ class App extends React.Component {
 
   componentDidMount () {
     // Pass currView to the subRedditDetail, pass /r/news if null
+    this.displaySubredditContent();
   }
 
   render () {
