@@ -17,9 +17,6 @@ class SubRedditList extends React.Component {
     this.removeSelf = this.removeSelf.bind(this);
   }
 
-  // Maybe a component lifecycle method to handle update here
-  // componentWillReceiveProps(nextProps)
-
   displaySubs() {
     return this.state.subreddits.length === 0 ? "Please add some SubReddits" :
       this.state.subreddits.map((subreddit, i) => {
