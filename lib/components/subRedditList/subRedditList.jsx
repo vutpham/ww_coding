@@ -15,6 +15,7 @@ class SubRedditList extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateList = this.updateList.bind(this);
     this.removeSelf = this.removeSelf.bind(this);
+    this.showError = this.showError.bind(this);
   }
 
   displaySubs() {
@@ -22,6 +23,7 @@ class SubRedditList extends React.Component {
       this.state.subreddits.map((subreddit, i) => {
         return (
             <SubRedditListItem name={subreddit}
+               selected={ subreddit === this.props.current }
                displaySubreddit={this.props.displaySubreddit}
                removeSelf={ this.removeSelf }
                key={`list_item_${i}`} />
@@ -39,11 +41,19 @@ class SubRedditList extends React.Component {
 
 // List of subreddits should only update if new subreddit is requested
   updateList(res, subreddit) {
+    document.querySelector('.errors').textContent = '';
+
     if (res) {
       let updated = this.state.subreddits;
       if (!this.state.subreddits.includes(`/r/${subreddit}`)) updated.push(`/r/${subreddit}`);
       this.setState({subreddits: updated, searchTerm: ""}, () => document.getElementById('subreddit-search').value = "");
     }
+  }
+
+  showError(){
+    document.getElementById('subreddit-search').value = "";
+    document.querySelector('.errors').textContent = 'Subreddit not found. Please try again.';
+    console.log('error');
   }
 
   handleSubmit(e) {
@@ -54,7 +64,7 @@ class SubRedditList extends React.Component {
     // If there is a response,
     // then update this.state.subreddits with subredditInput
       .then(res => this.updateList(res, this.state.searchTerm))
-      .catch(err => console.log(err));
+      .catch(() => this.showError());
   }
 
   render() {
@@ -62,8 +72,9 @@ class SubRedditList extends React.Component {
       <div className='form-container'>
           <form className='reddit-form' onSubmit={this.handleSubmit}>
             <h3>SubReddits</h3>
+            <div className='errors'></div>
             <div className='search'>
-              <input className='search-form' type="text" placeholder="Search subreddit" id="subreddit-search"/>
+              <input className='search-form' type="text" placeholder="Subreddit..." id="subreddit-search"/>
               <input className='search-button' type='submit' value="Search"/>
             </div>
           </form>

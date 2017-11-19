@@ -31,7 +31,7 @@ class SubRedditContent extends React.Component {
   render() {
     return (
       <div>
-        <h2>{ this.props.subreddit }</h2>
+        <h3>Currently showing: <strong>{ this.props.subreddit }</strong></h3>
           { this.displayContent() }
       </div>
     );

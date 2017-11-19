@@ -120,19 +120,25 @@ input[type=range]::-ms-track {
   width: 100%; }
   .list-name:hover {
     cursor: pointer;
-    background-color: red; }
+    background-color: #f4f4f4; }
 
 .reddit-form {
   margin-bottom: 15px; }
 
+h2 {
+  padding-left: 70px; }
+
 .content-item {
   display: flex; }
+  .content-item:hover {
+    background-color: #f3f3f3; }
 
 .upvote {
   margin-right: 15px;
   height: 50px;
   min-width: 50px;
-  color: red; }
+  color: red;
+  padding: 5px; }
 
 .main-content {
   display: flex; }

@@ -1,5 +1,13 @@
+h2 {
+  padding-left: 70px;
+}
+
 .content-item {
   display: flex;
+
+  &:hover {
+    background-color: #f3f3f3;
+  }
 }
 
 .upvote {
@@ -7,4 +15,5 @@
   height: 50px;
   min-width: 50px;
   color: red;
+  padding: 5px;
 }

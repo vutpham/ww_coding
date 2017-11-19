@@ -43,7 +43,8 @@ class App extends React.Component {
         <Title />
         <div className='main-content'>
           <div className='subreddit-list'>
-            <SubRedditList displaySubreddit={ this.displaySubreddit } />
+            <SubRedditList current={ this.state.currView }
+                           displaySubreddit={ this.displaySubreddit } />
           </div>
           <div className='content'>
             <SubRedditContent subreddit={ this.state.currView }
