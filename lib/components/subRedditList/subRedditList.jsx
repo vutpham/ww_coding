@@ -9,7 +9,7 @@ class SubRedditList extends React.Component {
 
     this.state = {
       searchTerm: "",
-      subreddits: []
+      subreddits: ['/r/toys', '/r/games']
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -59,11 +59,13 @@ class SubRedditList extends React.Component {
 
   render() {
     return (
-      <div>
-          <form onSubmit={this.handleSubmit}>
-            <h2>SubReddits</h2>
-            <input type="text" placeholder="Search subreddit" id="subreddit-search"/>
-            <input type='submit' value="Submit"/>
+      <div className='form-container'>
+          <form className='reddit-form' onSubmit={this.handleSubmit}>
+            <h3>SubReddits</h3>
+            <div className='search'>
+              <input className='search-form' type="text" placeholder="Search subreddit" id="subreddit-search"/>
+              <input className='search-button' type='submit' value="Search"/>
+            </div>
           </form>
         { this.displaySubs() }
       </div>

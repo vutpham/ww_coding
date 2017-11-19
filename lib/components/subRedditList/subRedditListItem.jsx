@@ -7,12 +7,12 @@ class SubRedditListItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <div onClick={() => this.props.displaySubreddit(this.props.name)}>
+      <div className='list-item'>
+        <div className='list-name' onClick={() => this.props.displaySubreddit(this.props.name)}>
           {this.props.name}
         </div>
         <div>
-          <input type="button" value="X" onClick={() => this.props.removeSelf(this.props.name)}/>
+          <input className='btn btn-xs btn-danger' type="button" value="X" onClick={() => this.props.removeSelf(this.props.name)}/>
         </div>
       </div>
     );

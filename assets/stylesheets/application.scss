@@ -1,6 +1,18 @@
 @import 'base/reset.scss';
 @import 'components/title.scss';
+@import 'components/subRedditList.scss';
+@import 'components/subRedditContent.scss';
 
-.app {
-  padding: 16px;
+.main-content {
+  display: flex;
+}
+
+.subreddit-list {
+  width: 20%;
+  min-width: 200px;
+}
+
+.content {
+  width: 80%;
+  margin-left: 50px;
 }

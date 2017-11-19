@@ -39,11 +39,17 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className='app'>
+      <div className='container'>
         <Title />
-        <SubRedditList displaySubreddit={ this.displaySubreddit } />
-        <SubRedditContent subreddit={ this.state.currView }
+        <div className='main-content'>
+          <div className='subreddit-list'>
+            <SubRedditList displaySubreddit={ this.displaySubreddit } />
+          </div>
+          <div className='content'>
+            <SubRedditContent subreddit={ this.state.currView }
                          subredditContent={ this.state.subredditContent }/>
+          </div>
+        </div>
       </div>
     );
   }

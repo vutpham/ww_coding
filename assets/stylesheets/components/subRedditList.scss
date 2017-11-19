@@ -1,0 +1,45 @@
+.form-container {
+  width: 100%
+}
+
+.search {
+  width: 100%;
+  display: flex;
+}
+
+.search-form {
+  width: 80%;
+  background-color: #f4f4f4;
+  padding: 2px 5px;
+}
+
+.search-button {
+  background-color: rgb(45, 208, 125);
+  color: white;
+  padding: 2px 20px;
+  font-size: .8em;
+  border: rgba(15, 91, 29, 0.75);
+  border-radius: 0;
+  width: 20%
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 1em;
+
+
+}
+
+.list-name {
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+    background-color: red;
+  }
+}
+
+.reddit-form {
+  margin-bottom: 15px;
+}
