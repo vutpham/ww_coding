@@ -17,13 +17,14 @@ class App extends React.Component {
     this.displaySubredditContent = this.displaySubredditContent.bind(this);
   }
 
+  // Fill up this.state.subredditContent with 10 non-stickied currView objects (/r/news objects if currView == null)
   displaySubredditContent() {
     if (this.state.currView === null) {
       axios.get(`http://www.reddit.com/r/news.json?limit=10`)
-      .then(res => this.setState({subredditContent: res.data.data.children.filter((item) => !item.data.stickied)}, () => console.log(this.state.subredditContent)));
+      .then(res => this.setState({subredditContent: res.data.data.children.filter((item) => !item.data.stickied)}));
     } else {
       axios.get(`http://www.reddit.com${this.state.currView}.json?limit=10`)
-      .then(res => this.setState({subredditContent: res.data.data.children.filter((item) => !item.data.stickied)}, () => console.log(this.state.subredditContent)));
+      .then(res => this.setState({subredditContent: res.data.data.children.filter((item) => !item.data.stickied)}));
     }
   }
 
