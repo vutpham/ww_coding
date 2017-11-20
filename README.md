@@ -19,7 +19,7 @@ Content from the **/r/news** subreddit will be displayed by default.
 
 #### Streamlined Subreddit Viewing
 
-When valid subreddits are added, users can pick a subreddit to display in the *subRedditContent* component.  Axios is used to make asynchronous 'GET' requests to the Reddit API and a limit of 10 non-stickied
+When valid subreddits are added, users can pick a subreddit to display in the *subRedditContent* component.  Axios is used to make asynchronous 'GET' requests to the Reddit API and a limit of 10 non-stickied posts will return.
 
 ```javascript
 // ./lib/components/App.jsx
