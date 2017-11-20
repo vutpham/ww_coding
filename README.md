@@ -1,4 +1,4 @@
-## Wonder Workshop Coding Challenge
+## WW Coding Challenge
 
 This assignment is a streamlined Reddit reader that is implemented as a single-page application using Reactjs.
 
