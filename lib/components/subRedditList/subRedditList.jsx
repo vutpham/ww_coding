@@ -19,7 +19,7 @@ class SubRedditList extends React.Component {
   }
 
   displaySubs() {
-    return this.state.subreddits.length === 0 ? "Please add some SubReddits" :
+    return this.state.subreddits.length === 0 ? "Please add some subreddits" :
       this.state.subreddits.map((subreddit, i) => {
         return (
             <SubRedditListItem name={subreddit}
@@ -71,10 +71,10 @@ class SubRedditList extends React.Component {
     return (
       <div className='form-container'>
           <form className='reddit-form' onSubmit={this.handleSubmit}>
-            <h3>SubReddits</h3>
+            <h3>My Subreddits</h3>
             <div className='errors'></div>
             <div className='search'>
-              <input className='search-form' type="text" placeholder="Subreddit..." id="subreddit-search"/>
+              <input className='search-form' type="text" placeholder="Add a subreddit..." id="subreddit-search"/>
               <input className='search-button' type='submit' value="Search"/>
             </div>
           </form>

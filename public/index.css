@@ -133,6 +133,10 @@ h2 {
   .content-item:hover {
     background-color: #f3f3f3; }
 
+.content {
+  padding-left: 20px;
+  border-left: #f4f4f4 2px solid; }
+
 .upvote {
   margin-right: 15px;
   height: 50px;
