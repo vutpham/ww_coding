@@ -60,6 +60,6 @@ Users can use the search form to add subreddits to the *subRedditList*. Valid su
 
 ### Note
 
-I interpretted this project as a 'streamlined reader' that displays 1 subreddit at a time instead of combining the subreddits added with **/r/news**.
+I interpreted this project as a 'streamlined reader' that displays 1 subreddit at a time instead of combining the subreddits added with **/r/news**.
 
 In order to show a combination of **/r/news +** ***subredditsAdded***, I would add 'allSubreddits' to the application state in App.jsx and fill it with posts received from subreddits in my *subredditList* component.  I would pass 'allSubreddits' down as a prop to subRedditContent and render the *subRedditContentItems*.  When the subreddits are removed, the state of 'allSubreddits' would update and a component lifecycle method would be used to update the *subRedditContent* component.
